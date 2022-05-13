@@ -1,38 +1,119 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #f6f6f6;
+  color: #0d1d2c;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  width: 100%;
+  padding-top: 30px;
+  font-family: "Montserrat", sans-serif;
 }
-
-.App-link {
-  color: #61dafb;
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.expenseBox {
+  display: flex;
+  flex-direction: column;
+  width: 135px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 60px;
+  padding: 5px 10px;
+}
+.expenseBox span {
+  font-weight: bold;
+  color: green;
+}
+.btn {
+  outline: none;
+  padding: 5px 10px;
+  background-color: #ede9fe;
+  color: #6d28d9;
+  border-radius: 5px;
+  border: 1px solid #6d28d9;
+  cursor: pointer;
+  transition: all ease-in-out 0.25s;
+}
+.primary {
+  color: #fff;
+  background-color: #6d28d9;
+  border: none;
+  padding: 8px 10px;
+}
+.cancel {
+  background-color: #fff;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+}
+.cancel:hover {
+  background-color: #dc2626;
+  color: #fff;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+input {
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  outline: none;
+  border-radius: 5px;
+}
+input[type="radio"] {
+  margin-left: 10px;
+}
+.radioBox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+}
+.radioBox label {
+  margin-left: 2px;
+}
+.balance {
+  font-weight: bold;
+}
+.transaction {
+  border-radius: 5px;
+  background-color: #f4f4f5;
+  padding: 10px;
+  margin-top: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  border-right: 4px solid green;
+}
+input.search {
+  display: block;
+  border-radius: 5px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  background-color: #efefef;
+  width: 100%;
+  margin: 20px 0;
 }
