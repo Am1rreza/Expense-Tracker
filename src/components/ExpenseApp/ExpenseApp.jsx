@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Overview from "../Overview/Overview";
 import Transaction from "../Transaction/Transaction";
 import styles from "./expenseApp.module.css";
 
@@ -9,14 +10,7 @@ const ExpenseApp = () => {
 
   return (
     <section className={styles.container}>
-      <div className={styles.topSection}>
-        <p>Balance : {income - expense}</p>
-        <button>Add</button>
-      </div>
-      <div className={styles.resultSection}>
-        <div>Expense {expense}</div>
-        <div>Income {income}</div>
-      </div>
+      <Overview income={income} expense={expense} />
       <Transaction transaction={transaction} />
     </section>
   );
