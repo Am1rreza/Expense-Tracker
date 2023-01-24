@@ -8,9 +8,21 @@ const ExpenseApp = () => {
   const [income, setIncome] = useState(0);
   const [transaction, setTransaction] = useState([]);
 
+  // Handlers
+  const addTransaction = (formValues) => {
+    setTransaction([
+      ...transaction,
+      { ...formValues, id: new Date().getTime() },
+    ]);
+  };
+
   return (
     <section className={styles.container}>
-      <Overview income={income} expense={expense} />
+      <Overview
+        income={income}
+        expense={expense}
+        addTransaction={addTransaction}
+      />
       <Transaction transaction={transaction} />
     </section>
   );

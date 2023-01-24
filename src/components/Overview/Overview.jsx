@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./overview.module.css";
 
-const Overview = ({ income, expense }) => {
+const Overview = ({ income, expense, addTransaction }) => {
   const [isShow, setIsShow] = useState(false);
 
   return (
@@ -12,7 +12,12 @@ const Overview = ({ income, expense }) => {
           {isShow ? "Cancel" : "Add"}
         </button>
       </div>
-      {isShow && <TransactionForm />}
+      {isShow && (
+        <TransactionForm
+          setIsShow={setIsShow}
+          addTransaction={addTransaction}
+        />
+      )}
       <div className={styles.resultSection}>
         <div>Expense {expense}</div>
         <div>Income {income}</div>
@@ -24,18 +29,67 @@ const Overview = ({ income, expense }) => {
 export default Overview;
 
 // TransactionForm component
-const TransactionForm = () => {
+const TransactionForm = ({ setIsShow, addTransaction }) => {
+  const [formValues, setFormValues] = useState({
+    type: "expense",
+    amount: 0,
+    description: "",
+  });
+
+  // Handlers
+  const changeHandler = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    addTransaction(formValues);
+
+    setIsShow(false);
+
+    setFormValues({
+      type: "expense",
+      amount: 0,
+      description: "",
+    });
+  };
+
   return (
-    <form>
-      <input type="text" name="description" />
-      <input type="number" name="amount" />
+    <form onSubmit={submitHandler}>
+      <input
+        type="text"
+        name="description"
+        value={formValues.description}
+        onChange={changeHandler}
+      />
+      <input
+        type="number"
+        name="amount"
+        value={formValues.amount}
+        onChange={changeHandler}
+      />
       <div>
-        <input type="radio" value="expense" name="type" id="expense" />
+        <input
+          type="radio"
+          value="expense"
+          name="type"
+          id="expense"
+          checked={formValues.type === "expense"}
+          onChange={changeHandler}
+        />
         <label htmlFor="expense">Expense</label>
-        <input type="radio" value="income" name="type" id="income" />
+        <input
+          type="radio"
+          value="income"
+          name="type"
+          id="income"
+          checked={formValues.type === "income"}
+          onChange={changeHandler}
+        />
         <label htmlFor="income">Income</label>
       </div>
-      <button>Add Transaction</button>
+      <button type="submit">Add Transaction</button>
     </form>
   );
 };
