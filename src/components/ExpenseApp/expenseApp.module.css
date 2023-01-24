@@ -1,0 +1,20 @@
+.topSection,
+.resultSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topSection {
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+}
