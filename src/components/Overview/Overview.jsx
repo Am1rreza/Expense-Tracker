@@ -57,7 +57,7 @@ const TransactionForm = ({ setIsShow, addTransaction }) => {
 
     setFormValues({
       type: "expense",
-      amount: 0,
+      amount: "",
       description: "",
     });
   };
