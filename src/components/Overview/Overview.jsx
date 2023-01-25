@@ -51,6 +51,11 @@ const TransactionForm = ({ setIsShow, addTransaction }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    if (!formValues.amount || !formValues.description) {
+      alert("Please fill the form !");
+      return;
+    }
+
     addTransaction(formValues);
 
     setIsShow(false);
