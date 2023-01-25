@@ -7,7 +7,7 @@ const Overview = ({ income, expense, addTransaction }) => {
   return (
     <>
       <div className={styles.topSection}>
-        <p>Balance : {income - expense}</p>
+        <p>Balance: {income - expense}$</p>
         <button onClick={() => setIsShow((prevState) => !prevState)}>
           {isShow ? "Cancel" : "Add"}
         </button>
@@ -19,8 +19,8 @@ const Overview = ({ income, expense, addTransaction }) => {
         />
       )}
       <div className={styles.resultSection}>
-        <div>Expense {expense}</div>
-        <div>Income {income}</div>
+        <div>Expense: {expense}$</div>
+        <div>Income: {income}$</div>
       </div>
     </>
   );
