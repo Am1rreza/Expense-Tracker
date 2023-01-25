@@ -19,8 +19,12 @@ const Overview = ({ income, expense, addTransaction }) => {
         />
       )}
       <div className={styles.resultSection}>
-        <div>Expense: {expense}$</div>
-        <div>Income: {income}$</div>
+        <div className={styles.expenseBox}>
+          Expense<span style={{ color: "red" }}>{expense}$</span>
+        </div>
+        <div className={styles.expenseBox}>
+          Income<span style={{ color: "green" }}>{income}$</span>
+        </div>
       </div>
     </>
   );

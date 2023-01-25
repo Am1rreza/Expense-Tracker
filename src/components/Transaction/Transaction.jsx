@@ -6,7 +6,6 @@ const Transaction = ({ transaction }) => {
           <div key={t.id}>
             <p>{t.description}</p>
             <p>{t.amount}</p>
-            <p>{t.type}</p>
           </div>
         );
       })}
