@@ -39,7 +39,7 @@ export default Overview;
 const TransactionForm = ({ setIsShow, addTransaction }) => {
   const [formValues, setFormValues] = useState({
     type: "expense",
-    amount: 0,
+    amount: "",
     description: "",
   });
 
@@ -67,16 +67,18 @@ const TransactionForm = ({ setIsShow, addTransaction }) => {
       <input
         type="text"
         name="description"
+        placeholder="Description"
         value={formValues.description}
         onChange={changeHandler}
       />
       <input
         type="number"
         name="amount"
+        placeholder="Amount"
         value={formValues.amount}
         onChange={changeHandler}
       />
-      <div>
+      <div className={styles.radioBox}>
         <input
           type="radio"
           value="expense"

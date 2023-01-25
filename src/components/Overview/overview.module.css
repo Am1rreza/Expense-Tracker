@@ -9,6 +9,10 @@
   margin-bottom: 20px;
 }
 
+.topSection p {
+  font-weight: 500;
+}
+
 .expenseBox {
   display: flex;
   flex-direction: column;
@@ -40,10 +44,48 @@
 .primary {
   background-color: #404041;
   color: #f6ede3;
+  padding: 8px 10px;
 }
 
 .cancel {
   background-color: #fff;
   color: #dc2626;
   border: 1px solid #dc2626;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  min-height: 170px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 12px;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+input[type="radio"]:not(:first-child) {
+  margin-left: 10px;
+}
+
+.radioBox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 15px;
+}
+
+.radioBox label {
+  margin-left: 3px;
+}
+
+.radioBox label,
+.radioBox input {
+  cursor: pointer;
 }
