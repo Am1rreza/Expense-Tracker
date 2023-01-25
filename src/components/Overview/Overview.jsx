@@ -8,7 +8,10 @@ const Overview = ({ income, expense, addTransaction }) => {
     <>
       <div className={styles.topSection}>
         <p>Balance: {income - expense}$</p>
-        <button onClick={() => setIsShow((prevState) => !prevState)}>
+        <button
+          className={`${styles.btn} ${isShow && styles.cancel}`}
+          onClick={() => setIsShow((prevState) => !prevState)}
+        >
           {isShow ? "Cancel" : "Add"}
         </button>
       </div>
@@ -93,7 +96,9 @@ const TransactionForm = ({ setIsShow, addTransaction }) => {
         />
         <label htmlFor="income">Income</label>
       </div>
-      <button type="submit">Add Transaction</button>
+      <button className={`${styles.btn} ${styles.primary}`} type="submit">
+        Add Transaction
+      </button>
     </form>
   );
 };

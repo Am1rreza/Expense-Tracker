@@ -24,3 +24,26 @@
 .expenseBox span {
   font-weight: 600;
 }
+
+.btn {
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #404041;
+  background-color: #f6ede3;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.primary {
+  background-color: #404041;
+  color: #f6ede3;
+}
+
+.cancel {
+  background-color: #fff;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+}
