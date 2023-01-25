@@ -9,3 +9,15 @@
   align-items: center;
   border-right: 4px solid green;
 }
+
+.searchBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.searchBox input {
+  width: 100%;
+}
