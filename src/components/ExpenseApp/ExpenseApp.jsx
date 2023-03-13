@@ -9,6 +9,13 @@ const ExpenseApp = () => {
   const [transaction, setTransaction] = useState([]);
 
   useEffect(() => {
+    const allTransactions =
+      JSON.parse(localStorage.getItem("transactions")) || [];
+
+    setTransaction(allTransactions);
+  }, []);
+
+  useEffect(() => {
     let exp = 0;
     let inc = 0;
 
@@ -24,10 +31,14 @@ const ExpenseApp = () => {
 
   // Handlers
   const addTransaction = (formValues) => {
-    setTransaction([
-      ...transaction,
-      { ...formValues, id: new Date().getTime() },
-    ]);
+    const newTransaction = { ...formValues, id: new Date().getTime() };
+
+    localStorage.setItem(
+      "transactions",
+      JSON.stringify([...transaction, newTransaction])
+    );
+
+    setTransaction([...transaction, newTransaction]);
   };
 
   return (
