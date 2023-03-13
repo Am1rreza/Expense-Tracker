@@ -10,6 +10,14 @@
   border-right: 4px solid green;
 }
 
+.subTransaction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 0.5rem;
+}
+
+
 .searchBox {
   display: flex;
   justify-content: center;

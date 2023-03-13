@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./transaction.module.css";
+import { FaTrash } from "react-icons/fa";
 
-const Transaction = ({ transaction }) => {
+const Transaction = ({ transaction, setTransaction }) => {
   const [searchValue, setSearchValue] = useState("");
   const [filteredTransactions, setFilteredTransactions] = useState(transaction);
 
@@ -23,13 +24,23 @@ const Transaction = ({ transaction }) => {
     setFilteredTransactions(filtered);
   };
 
+  const deleteHandler = (id) => {
+    const filteredTransaction = transaction.filter(
+      (t) => t.id !== parseInt(id)
+    );
+
+    localStorage.setItem("transactions", JSON.stringify(filteredTransaction));
+
+    setTransaction(filteredTransaction);
+  };
+
   const changeHandler = (e) => {
     setSearchValue(e.target.value);
     filterTransactions(e.target.value);
   };
 
   // Conditional rendering
-  if(!transaction.length)
+  if (!transaction.length)
     return (
       <h3 style={{ padding: "20px 0 10px 0", textAlign: "center" }}>
         Add Transaction !
@@ -61,7 +72,13 @@ const Transaction = ({ transaction }) => {
               style={{ borderRight: t.type === "expense" && "4px solid red" }}
             >
               <span>{t.description}</span>
-              <span>{t.amount}$</span>
+              <div className={styles.subTransaction}>
+                <span>{t.amount}$</span>
+                <FaTrash
+                  onClick={() => deleteHandler(t.id)}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
             </div>
           );
         })
