@@ -79,6 +79,7 @@ const TransactionForm = ({ setIsShow, addTransaction }) => {
       <input
         type="number"
         name="amount"
+        inputMode="decimal"
         placeholder="Amount"
         value={formValues.amount}
         onChange={changeHandler}
